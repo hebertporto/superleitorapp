@@ -1,13 +1,13 @@
 import React from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import { Text } from 'react-native';
-import PageOne from './components/PageOne'
+import LoginFacebook from './components/LoginFacebook'
 
 
 const RouterComponent = () => {
   return (
     <Router sceneStyle={{ paddingTop: 65 }}>
-       <Scene key="pageOne" component={PageOne} title="Page One"/>
+       <Scene key="LoginFacebook" component={LoginFacebook}hideNavBar />
     </Router>
   );
 };
