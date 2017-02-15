@@ -1,40 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { Spinner, CardSection, Card, Button } from './common';
 import firebase from 'firebase';
 
+import FBSDK from 'react-native-fbsdk';
+const {
+  LoginButton,
+  AccessToken
+} = FBSDK;
+
+
 class LoginFacebook extends Component {
-  onPressButton() {
-    const provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithRedirect(provider).then(result => {
-      console.log(result);
-      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      let token = result.credential.accessToken;
-      // The signed-in user info.
-      let user = result.user;
-      // ...
-    }).catch(error => {
-      // Handle Errors here.
-      let errorCode = error.code;
-      let errorMessage = error.message;
-      // The email of the user's account used.
-      let email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      let credential = error.credential;
-      // ...
-});
-    console.log(provider);
-  }
+
 
   render() {
       return (
-        <View style={styles.viewStyle}>
-          <CardSection>
-            <Button onPress={this.onPressButton.bind(this)} >
-              Facebook Login
-            </Button>
-          </CardSection>
+        <View>
+          <LoginButton
+            publishPermissions={["publish_actions"]}
+            onLoginFinished={
+              (error, result) => {
+                if (error) {
+                  alert("login has error: " + result.error);
+                } else if (result.isCancelled) {
+                  alert("login is cancelled.");
+                } else {
+                  AccessToken.getCurrentAccessToken().then(
+                    (data) => {
+                      alert(data.accessToken.toString())
+                    }
+                  )
+                }
+              }
+            }
+            onLogoutFinished={() => alert("logout.")}/>
         </View>
       );
     }
