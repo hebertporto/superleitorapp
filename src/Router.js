@@ -1,13 +1,18 @@
 import React from 'react';
-import { Scene, Router, Actions } from 'react-native-router-flux';
-import { Platform } from 'react-native';
-import LoginFacebook from './components/LoginFacebook'
+import { Scene, Router } from 'react-native-router-flux';
+import LoginFacebook from './components/LoginFacebook';
+import PageOne from './components/PageOne';
 
 
 const RouterComponent = () => {
   return (
-    <Router sceneStyle={{ paddingTop: Platform.OS == 'ios' ? 64 : 54 }}>
-       <Scene key="LoginFacebook" component={LoginFacebook}hideNavBar />
+    <Router>
+       <Scene key="login">
+         <Scene key="LoginFacebook" component={LoginFacebook} hideNavBar intial />
+       </Scene>
+       <Scene key="main">
+         <Scene key="PageOne" component={PageOne} title="Super Novel Reader" />
+       </Scene>
     </Router>
   );
 };

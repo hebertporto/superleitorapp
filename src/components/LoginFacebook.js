@@ -1,49 +1,60 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { View, StyleSheet, Text } from 'react-native';
-import { Spinner, CardSection, Card, Button } from './common';
-import firebase from 'firebase';
-
 import FBSDK from 'react-native-fbsdk';
-const {
-  LoginButton,
-  AccessToken
-} = FBSDK;
+import { StyleSheet, Image, Button, View } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
+const { LoginManager } = FBSDK;
 
 class LoginFacebook extends Component {
 
-
-  render() {
-      return (
-        <View>
-          <LoginButton
-            publishPermissions={["publish_actions"]}
-            onLoginFinished={
-              (error, result) => {
-                if (error) {
-                  alert("login has error: " + result.error);
-                } else if (result.isCancelled) {
-                  alert("login is cancelled.");
-                } else {
-                  AccessToken.getCurrentAccessToken().then(
-                    (data) => {
-                      alert(data.accessToken.toString())
-                    }
-                  )
-                }
-              }
-            }
-            onLogoutFinished={() => alert("logout.")}/>
-        </View>
-      );
+  handleFacebookLogin() {
+     LoginManager.logInWithReadPermissions(['public_profile', 'email', 'user_friends'])
+        .then(result => {
+               if (result.isCancelled) {
+                 alert('Login cancelled');
+               } else {
+                 Actions.main();
+                 //alert('Login success with permissions: ' + result.grantedPermissions.toString());
+               }
+             },
+        error => {
+         alert('Login fail with error: ' + error);
+       }
+     );
     }
+    render() {
+     return (
+        <Image
+        source={require('./../assets/img/login-background.png')}
+        style={styles.container}
+        >
+          <View style={styles.viewStyle}>
+              <Button
+                onPress={this.handleFacebookLogin}
+                color="#4267B2"
+                title="Login com Facebook"
+              />
+          </View>
+       </Image>
+     );
   }
+}
 
-  const styles = StyleSheet.create({
-    viewStyle: {
-      flex: 1
-    }
-  });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative'
+  },
+  viewStyle: {
+    position: 'absolute',
+    bottom: 160,
+    paddingLeft: 100
+  }
+});
 
 export default LoginFacebook;

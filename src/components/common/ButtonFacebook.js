@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const Button = ({ onPress, children }) => {
+const ButtonFacebook = ({ onPress, children }) => {
   const { buttonStyle, textStyle } = styles;
    return (
      <TouchableOpacity
@@ -18,7 +18,7 @@ const Button = ({ onPress, children }) => {
 const styles = StyleSheet.create({
   textStyle: {
     alignSelf: 'center',
-    color: '#007aff',
+    color: 'white',
     fontWeight: '600',
     fontSize: 16,
     paddingTop: 10,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   buttonStyle: {
     flex: 1,
     alignSelf: 'stretch',
-    backgroundColor: '#fff',
+    backgroundColor: '#4267B2',
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#007aff',
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export { Button };
+export { ButtonFacebook };
