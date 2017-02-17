@@ -8,7 +8,7 @@ const RouterComponent = () => {
   return (
     <Router>
        <Scene key="login">
-         <Scene key="LoginFacebook" component={LoginFacebook} hideNavBar intial />
+         <Scene key="LoginFacebook" component={LoginFacebook} hideNavBar />
        </Scene>
        <Scene key="main">
          <Scene key="PageOne" component={PageOne} title="Super Novel Reader" />
