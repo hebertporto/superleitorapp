@@ -13,7 +13,7 @@ class LoginFacebook extends Component {
   }
 
   handleFacebookLogin() {
-     LoginManager.logInWithReadPermissions(['public_profile', 'email', 'user_friends'])
+     LoginManager.logInWithReadPermissions(['email'])
         .then(result => {
                if (result.isCancelled) {
                  alert('Login cancelled');
@@ -23,7 +23,7 @@ class LoginFacebook extends Component {
                }
              },
         error => {
-         alert('Login fail with error: ' + error);
+         alert(`Login fail with error:  ${error}`);
        }
      );
     }
