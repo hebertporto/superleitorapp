@@ -8,6 +8,8 @@ import com.facebook.FacebookSdk;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.facebook.appevents.AppEventsLogger;
 
+import com.github.yamill.orientation.OrientationPackage;
+
 import com.remobile.splashscreen.RCTSplashScreenPackage;
 
 import com.facebook.react.ReactApplication;
@@ -39,7 +41,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
           new RCTSplashScreenPackage(MainActivity.activity),
-          new FBSDKPackage(mCallbackManager)
+          new FBSDKPackage(mCallbackManager),
+          new OrientationPackage(MainActivity.activity)
       );
     }
   };

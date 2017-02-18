@@ -40,17 +40,13 @@ acorn-jsx@^3.0.0:
   dependencies:
     acorn "^3.0.4"
 
-acorn@4.0.4:
+acorn@4.0.4, acorn@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.4.tgz#17a8d6a7a6c4ef538b814ec9abac2779293bf30a"
 
 acorn@^3.0.4:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-3.3.0.tgz#45e37fb39e8da3f25baee3ff5369e2bb5f22017a"
-
-acorn@^4.0.4:
-  version "4.0.11"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.11.tgz#edcda3bd937e7556410d42ed5860f67399c794c0"
 
 ajv-keywords@^1.0.0:
   version "1.5.1"
@@ -3489,6 +3485,14 @@ react-native-experimental-navigation@0.26.x:
     clamp "^1.0.1"
     fbjs "^0.8.1"
     react-addons-pure-render-mixin "^15.0.2"
+
+react-native-fbsdk@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-fbsdk/-/react-native-fbsdk-0.5.0.tgz#3ccd67d189755df11d366b8de9acb91ea2300e6e"
+
+react-native-orientation@^1.17.0:
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/react-native-orientation/-/react-native-orientation-1.17.0.tgz#bfbeba17e20f7f96d09042e31fbe5d479f1d5b94"
 
 react-native-router-flux@^3.37.0:
   version "3.37.0"

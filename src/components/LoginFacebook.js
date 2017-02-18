@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import FBSDK from 'react-native-fbsdk';
 import { StyleSheet, Image, Button, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import Orientation from 'react-native-orientation';
 
 const { LoginManager } = FBSDK;
 
 class LoginFacebook extends Component {
+
+  componentWillMount() {
+      Orientation.lockToPortrait();
+  }
 
   handleFacebookLogin() {
      LoginManager.logInWithReadPermissions(['public_profile', 'email', 'user_friends'])
