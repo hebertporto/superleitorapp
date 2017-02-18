@@ -1,7 +1,10 @@
 package com.superleitorapp;
 
+
 import android.app.Application;
 import android.util.Log;
+
+import io.fullstack.firestack.FirestackPackage;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
@@ -42,7 +45,8 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
           new RCTSplashScreenPackage(MainActivity.activity),
           new FBSDKPackage(mCallbackManager),
-          new OrientationPackage(MainActivity.activity)
+          new OrientationPackage(MainActivity.activity),
+          new FirestackPackage()
       );
     }
   };

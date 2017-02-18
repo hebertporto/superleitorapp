@@ -3,6 +3,7 @@ import FBSDK from 'react-native-fbsdk';
 import { StyleSheet, Image, Button, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Orientation from 'react-native-orientation';
+import fireStack from 'react-native-firestack';
 
 const { LoginManager } = FBSDK;
 
