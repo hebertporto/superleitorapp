@@ -3,9 +3,8 @@ import FBSDK from 'react-native-fbsdk';
 import { StyleSheet, Image, Button, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Orientation from 'react-native-orientation';
-import fireStack from 'react-native-firestack';
 
-const { LoginManager } = FBSDK;
+const { LoginManager, AccessToken } = FBSDK;
 
 class LoginFacebook extends Component {
 
@@ -14,13 +13,15 @@ class LoginFacebook extends Component {
   }
 
   handleFacebookLogin() {
-     LoginManager.logInWithReadPermissions(['email'])
+     LoginManager.logInWithReadPermissions(['public_profile'])
         .then(result => {
                if (result.isCancelled) {
                  alert('Login cancelled');
                } else {
-                 Actions.main();
-                 //alert('Login success with permissions: ' + result.grantedPermissions.toString());
+                 console.log('result', result.grantedPermissions.toString());
+                 AccessToken.getCurrentAccessToken().then(data => {
+                    console.log('retorno', data.accessToken);          
+                 });
                }
              },
         error => {

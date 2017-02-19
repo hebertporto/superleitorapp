@@ -1,13 +1,47 @@
 import React, { Component } from 'react';
-import { View, Text, Platform } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { ListView } from 'react-native';
+import { connect } from 'react-redux';
+import { ListItem } from './common';
+import { novelsFetch } from '../actions';
 
-export default class PageOne extends Component {
+class PageOne extends Component {
+
+  componentWillMount() {
+    this.props.novelsFetch();
+    this.createDataSource(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.createDataSource(nextProps);
+  }
+
+  createDataSource({ novels }) {
+    const ds = new ListView.DataSource({
+        rowHasChanged: (r1, r2) => r1 !== r2
+    });
+    this.dataSource = ds.cloneWithRows(novels);
+  }
+
+  renderRow(novel) {
+     return <ListItem novels={novel} />;
+  }
+
   render() {
+    console.log(this.props);
     return (
-      <View style={{ margin: 128, paddingTop: Platform.OS === 'ios' ? 64 : 54 }}>
-        <Text onPress={Actions.pageTwo}>Você está logado.</Text>
-      </View>
+      <ListView
+        enableEmptySections
+        dataSource={this.dataSource}
+        renderRow={this.renderRow}
+      />
     );
   }
 }
+
+// npm install --save loadsh
+const mapStateToProps = state => {
+  console.log('stateNovels', state.novels);
+    return { novels: state.novels };
+};
+
+export default connect(mapStateToProps, { novelsFetch })(PageOne);

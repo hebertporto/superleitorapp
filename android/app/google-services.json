@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "17945973133",
-    "firebase_url": "https://auth-88835.firebaseio.com",
-    "project_id": "auth-88835",
-    "storage_bucket": "auth-88835.appspot.com"
+    "project_number": "535727167319",
+    "firebase_url": "https://manager-8f225.firebaseio.com",
+    "project_id": "manager-8f225",
+    "storage_bucket": "manager-8f225.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:17945973133:android:165bea05879e4517",
+        "mobilesdk_app_id": "1:535727167319:android:165bea05879e4517",
         "android_client_info": {
           "package_name": "com.superleitorapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "17945973133-fuud6j57ctnidv1lp4ifqvaef2m121ia.apps.googleusercontent.com",
+          "client_id": "535727167319-qlvfoo83c8552ij24hennofr8lho9h17.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBeleJ_GrPx1UOzluuk6rNWc6COZjPMrXk"
+          "current_key": "AIzaSyC2Sd5_9G1LOX62wJHP_Er70XbVRYTOcSI"
         }
       ],
       "services": {
