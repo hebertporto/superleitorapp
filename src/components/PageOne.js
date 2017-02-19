@@ -27,7 +27,6 @@ class PageOne extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <ListView
         enableEmptySections
@@ -40,8 +39,8 @@ class PageOne extends Component {
 
 // npm install --save loadsh
 const mapStateToProps = state => {
-  console.log('stateNovels', state.novels);
-    return { novels: state.novels };
+   console.log('stateNovels', state.novels);
+   return { novels: state.novels };
 };
 
 export default connect(mapStateToProps, { novelsFetch })(PageOne);

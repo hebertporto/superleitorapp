@@ -4,12 +4,13 @@ import { CardSection } from './common';
 
 class ListItem extends Component {
   render() {
-    console.log('props', this.props.novels);
+    console.log('props', this.props);
 
+    const { title } = this.props.novel;
     return (
       <CardSection>
         <Text style={styles.titleStyle}>
-           Item
+           {title}
         </Text>
       </CardSection>
     );
