@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 import { Scene, Router } from 'react-native-router-flux';
 import LoginFacebook from './components/LoginFacebook';
-import PageOne from './components/PageOne';
+import MainScreen from './components/MainScreen';
 
 // const renderMenuButton = () => {
 //         return (
@@ -21,8 +21,8 @@ const RouterComponent = () => {
        </Scene>
        <Scene key="main" initial>
          <Scene
-           key='PageOne'
-           component={PageOne}
+           key='MainScreen'
+           component={MainScreen}
            title='Super Novel Reader'
            navigationBarStyle={{ backgroundColor: '#2196F3' }}
            titleStyle={{ color: 'white' }}

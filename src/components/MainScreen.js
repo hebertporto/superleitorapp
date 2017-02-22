@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
 import { connect } from 'react-redux';
-import { ListItem } from './common';
+import ListNovels from './ListNovels';
 import { novelsFetch } from '../actions';
 
-class PageOne extends Component {
+class MainScreen extends Component {
 
   componentWillMount() {
     this.props.novelsFetch();
@@ -23,7 +23,7 @@ class PageOne extends Component {
   }
 
   renderRow(novel) {
-     return <ListItem novels={novel} />;
+     return <ListNovels novel={novel} />;
   }
 
   render() {
@@ -43,4 +43,4 @@ const mapStateToProps = state => {
    return { novels: state.novels };
 };
 
-export default connect(mapStateToProps, { novelsFetch })(PageOne);
+export default connect(mapStateToProps, { novelsFetch })(MainScreen);
