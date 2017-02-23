@@ -39,7 +39,6 @@ class MainScreen extends Component {
 
 // npm install --save loadsh
 const mapStateToProps = state => {
-   console.log('stateNovels', state.novels);
    return { novels: state.novels };
 };
 
