@@ -26,14 +26,14 @@ class NovelScreen extends Component {
      return <ListChapter chapter={chapter} />;
   }
   render() {
-    const { title, image, artist } = this.props.novel;
+    const { title, url, id } = this.props.novel;
     return (
       <View>
         <Card>
           <CardSection>
             <Image
               style={styles.imageStyle}
-              source={{ uri: image }}
+              source={{ uri: url }}
             >
               <Text numberOfLines={1} style={styles.titleStyle}>
                 {title}
@@ -43,7 +43,7 @@ class NovelScreen extends Component {
           <CardSection>
             <View style={styles.viewStyle}>
               <Text numberOfLines={1} style={styles.textStyle}>{myIcon} {title}</Text>
-              <Text numberOfLines={1} style={styles.textStyle}>{myIcon2} {artist}</Text>
+              <Text numberOfLines={1} style={styles.textStyle}>{myIcon2} {id}</Text>
               <Text>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum
                 vulputate luctus. Nulla venenatis egestas dignissim. Sed eu odio eget leo tincidunt
