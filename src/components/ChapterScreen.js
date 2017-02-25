@@ -108,7 +108,9 @@ const styles = StyleSheet.create({
   textStyle: {
     padding: 10,
     justifyContent: 'center',
-    fontSize: 16
+    textAlign: 'center',
+    fontSize: 16,
+    lineHeight: 20
   }
 });
 export default ChapterScreen;
