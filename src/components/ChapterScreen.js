@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, ScrollView } from 'react-native';
 import { Card, CardSection } from './common';
 
 class ChapterScreen extends Component {
   render() {
       return (
+        <ScrollView>
         <Card>
           <CardSection>
             <Text style={styles.textStyle}>
@@ -98,13 +99,16 @@ Mesmo que Yan Yang não tivesse ouvido a conversa que aconteceu entre Wu Yazi e 
             </Text>
           </CardSection>
         </Card>
+      </ScrollView>
       );
   }
 }
 
 const styles = StyleSheet.create({
   textStyle: {
-    padding: 10
+    padding: 10,
+    justifyContent: 'center',
+    fontSize: 16
   }
 });
 export default ChapterScreen;

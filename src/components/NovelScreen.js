@@ -25,7 +25,7 @@ class NovelScreen extends Component {
   renderRow(chapter) {
      return <ListChapter chapter={chapter} />;
   }
-  render() {
+  renderSectionHeader() {
     const { title, url, id } = this.props.novel;
     return (
       <View>
@@ -52,12 +52,18 @@ class NovelScreen extends Component {
             </View>
           </CardSection>
         </Card>
+      </View>
+    );
+  }
+  render() {
+    return (
         <ListView
           enableEmptySections
           dataSource={this.dataSource}
           renderRow={this.renderRow}
+          renderSectionHeader={this.renderSectionHeader.bind(this)}
         />
-      </View>
+
     );
   }
 }

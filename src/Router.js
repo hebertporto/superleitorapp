@@ -28,9 +28,6 @@ const RouterComponent = () => {
            onRight={() => alert('search')}
            rightTitle='Search'
            rightButtonTextStyle={styles.titleStyle}
-           onLeft={() => alert('menu')}
-           leftTitle='Menu'
-           leftButtonTextStyle={styles.titleStyle}
          />
        </Scene>
        <Scene
