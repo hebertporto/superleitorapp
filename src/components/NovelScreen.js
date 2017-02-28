@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Text, View, Image, StyleSheet, ListView } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { Card, CardSection } from './common';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Actions } from 'react-native-router-flux';
 import ListChapter from './ListChapter';
 
 const myIcon = (<Icon name="copyright" size={18} color="#717171" />);
-const myIcon2 = (<Icon name="cc" size={18} color="#717171" />);
+const myIcon2 = (<Icon name="translate" size={18} color="#717171" />);
+const myIcon3 = (<Icon name="keyboard-backspace" size={36} color="white" />);
 
 class NovelScreen extends Component {
 
@@ -13,45 +14,55 @@ class NovelScreen extends Component {
     this.createDataSource(this.props);
   }
 
+  goListNovels() {
+    Actions.main();
+  }
   createDataSource() {
     const ds = new ListView.DataSource({
         rowHasChanged: (r1, r2) => r1 !== r2
     });
-    this.dataSource = ds.cloneWithRows(['Chapter 1', 'Chapter 2',
-     'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7',
-     'Chapter 8', 'Chapter 9', 'Chapter 10']);
+    this.dataSource = ds.cloneWithRows([
+      { cap: '01', title: 'Lorem ipsum dolor' },
+      { cap: '02', title: 'Lorem dolor' },
+      { cap: '04', title: 'Ipsum dolor' },
+      { cap: '125', title: 'Lorem ipsum dolor' },
+      { cap: '407', title: 'Dolor Lorem' }
+    ]);
   }
 
   renderRow(chapter) {
      return <ListChapter chapter={chapter} />;
   }
+
   renderSectionHeader() {
-    const { title, url, id } = this.props.novel;
+    const { title, url } = this.props.novel;
     return (
       <View>
-        <Card>
-          <CardSection>
-            <Image
-              style={styles.imageStyle}
-              source={{ uri: url }}
-            >
-              <Text numberOfLines={1} style={styles.titleStyle}>
-                {title}
-              </Text>
-            </Image>
-          </CardSection>
-          <CardSection>
+        <Image
+          style={styles.imageStyle}
+          source={{ uri: url }}
+        >
+        <Text onPress={this.goListNovels}>{myIcon3}</Text>
+
+          <Text numberOfLines={2} style={styles.titleStyle}>
+            {title}
+          </Text>
+        </Image>
             <View style={styles.viewStyle}>
-              <Text numberOfLines={1} style={styles.textStyle}>{myIcon} {title}</Text>
-              <Text numberOfLines={1} style={styles.textStyle}>{myIcon2} {id}</Text>
-              <Text>
+              <Text style={styles.textStyleDescription}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum
                 vulputate luctus. Nulla venenatis egestas dignissim. Sed eu odio eget leo tincidunt
                 lacinia id ut justo. Nulla eros justo, laoreet ac turpis eget
               </Text>
+              <View style={styles.divider} />
+              <Text numberOfLines={1} style={styles.textStyle}>{myIcon} Jing Wu Hen</Text>
+              <Text numberOfLines={1} style={styles.textStyle}>{myIcon2} Saikai Scan</Text>
+              <Text numberOfLines={1} style={styles.textStyle}>
+                {myIcon2} Tradutor 1, Tradutor 2
+              </Text>
+              <Text numberOfLines={1} style={styles.textStyle}>{myIcon2} Revisor</Text>
+              <View style={styles.divider} />
             </View>
-          </CardSection>
-        </Card>
       </View>
     );
   }
@@ -70,9 +81,15 @@ class NovelScreen extends Component {
 
 const styles = StyleSheet.create({
   titleStyle: {
-    fontSize: 20,
+    fontSize: 26,
     paddingLeft: 5,
     color: '#ffffff'
+  },
+  textStyleDescription: {
+    paddingTop: 8,
+    paddingBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10
   },
   viewStyle: {
     flex: 1,
@@ -84,11 +101,26 @@ const styles = StyleSheet.create({
   imageStyle: {
     flex: 1,
     width: undefined,
-    height: 180,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-start'
+    height: 250,
+    paddingLeft: 20,
+    paddingRight: 10,
+    paddingTop: 10,
+    paddingBottom: 20,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+  divider: {
+        backgroundColor: 'rgba(0,0,0,.12)',
+        height: 1,
+        marginLeft: 50,
+        marginRight: 50,
+        marginTop: 10,
+        marginBottom: 10
+
   },
   textStyle: {
+    paddingLeft: 10,
+    paddingRight: 10
   },
   linearGradient: {
     height: 35,

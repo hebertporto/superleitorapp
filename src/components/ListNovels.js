@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactNative from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Actions } from 'react-native-router-flux';
 import { CardSection, Card } from './common';
 
@@ -11,8 +11,9 @@ const {
   StyleSheet,
   TouchableWithoutFeedback
 } = ReactNative;
+
 const myIcon = (<Icon name="copyright" size={18} color="#717171" />);
-const myIcon2 = (<Icon name="cc" size={18} color="#717171" />);
+const myIcon2 = (<Icon name="translate" size={18} color="#717171" />);
 
 class ListNovels extends Component {
   selectNovel() {

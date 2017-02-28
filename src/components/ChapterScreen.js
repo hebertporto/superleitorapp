@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, ScrollView } from 'react-native';
-import { Card, CardSection } from './common';
+import { Text, StyleSheet, ScrollView, View, Platform } from 'react-native';
 
 class ChapterScreen extends Component {
   render() {
       return (
-        <ScrollView>
-        <Card>
-          <CardSection>
+        <ScrollView style={{ paddingTop: Platform.OS === 'ios' ? 64 : 54 }}>
+          <View style={styles.viewHeaderStyle}>
+              <Text style={styles.titleStyle}>Tales of Gods and Demons </Text>
+              <Text style={styles.subTitleStyle}>Quando eles viram a cena diante </Text>
+          </View>
+          <View style={styles.divider} />
+          <View>
             <Text style={styles.textStyle}>
               Quando eles viram a cena diante deles, aqueles que ainda estavam planejando blefar sua saída começaram a tremer de medo.
 
@@ -97,8 +100,7 @@ Mesmo que Yan Yang não tivesse ouvido a conversa que aconteceu entre Wu Yazi e 
 “Nós temos que sair agora. Se o Santo Filho Li Huo nos achar, as coisas podem ficar problemáticas!”, Disse Nie Li.
 “Ok.” Os dois voaram.
             </Text>
-          </CardSection>
-        </Card>
+          </View>
       </ScrollView>
       );
   }
@@ -111,6 +113,29 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     lineHeight: 20
+  },
+  viewHeaderStyle: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginTop: 20
+  },
+  titleStyle: {
+    fontSize: 26,
+    color: 'black'
+
+  },
+  subTitleStyle: {
+    fontSize: 18
+  },
+  divider: {
+    backgroundColor: 'rgba(0,0,0,.12)',
+    height: 1,
+    marginLeft: 40,
+    marginRight: 40,
+    marginTop: 10,
+    marginBottom: 10
   }
+
 });
 export default ChapterScreen;
