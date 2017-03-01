@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, Image, StyleSheet, ListView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Actions } from 'react-native-router-flux';
+import { AdMobBanner } from 'react-native-admob';
 import ListChapter from './ListChapter';
 
 const myIcon = (<Icon name="copyright" size={18} color="#717171" />);
@@ -29,6 +30,19 @@ class NovelScreen extends Component {
 
   renderRow(chapter) {
      return <ListChapter chapter={chapter} />;
+  }
+
+  renderFooter() {
+    return (
+      <View>
+        <AdMobBanner
+          bannerSize="smartBannerPortrait"
+          adUnitID="ca-app-pub-8356555649836141/2597995459"
+          testDeviceID="EMULATOR"
+          didFailToReceiveAdWithError={this.bannerError}
+        />
+      </View>
+    );
   }
 
   renderSectionHeader() {
@@ -67,6 +81,7 @@ class NovelScreen extends Component {
           dataSource={this.dataSource}
           renderRow={this.renderRow}
           renderSectionHeader={this.renderSectionHeader.bind(this)}
+          renderFooter={this.renderFooter}
         />
 
     );
