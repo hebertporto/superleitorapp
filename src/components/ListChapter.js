@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { TouchableWithoutFeedback, View, Text, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-
 class ListChapter extends Component {
   selectChapter() {
       Actions.ChapterScreen();

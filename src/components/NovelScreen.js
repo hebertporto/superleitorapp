@@ -14,9 +14,6 @@ class NovelScreen extends Component {
     this.createDataSource(this.props);
   }
 
-  goListNovels() {
-    Actions.main();
-  }
   createDataSource() {
     const ds = new ListView.DataSource({
         rowHasChanged: (r1, r2) => r1 !== r2
@@ -35,6 +32,7 @@ class NovelScreen extends Component {
   }
 
   renderSectionHeader() {
+    const goListNovels = () => Actions.main();
     const { title, url } = this.props.novel;
     return (
       <View>
@@ -42,7 +40,7 @@ class NovelScreen extends Component {
           style={styles.imageStyle}
           source={{ uri: url }}
         >
-        <Text onPress={this.goListNovels}>{myIcon3}</Text>
+        <Text onPress={goListNovels}>{myIcon3}</Text>
 
           <Text numberOfLines={2} style={styles.titleStyle}>
             {title}
@@ -57,10 +55,6 @@ class NovelScreen extends Component {
               <View style={styles.divider} />
               <Text numberOfLines={1} style={styles.textStyle}>{myIcon} Jing Wu Hen</Text>
               <Text numberOfLines={1} style={styles.textStyle}>{myIcon2} Saikai Scan</Text>
-              <Text numberOfLines={1} style={styles.textStyle}>
-                {myIcon2} Tradutor 1, Tradutor 2
-              </Text>
-              <Text numberOfLines={1} style={styles.textStyle}>{myIcon2} Revisor</Text>
               <View style={styles.divider} />
             </View>
       </View>
