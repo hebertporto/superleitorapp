@@ -4,7 +4,9 @@ import { Actions } from 'react-native-router-flux';
 
 class ListChapter extends Component {
   selectChapter() {
-      Actions.ChapterScreen();
+      const { cap, title } = this.props.chapter;
+      const novelTitle = cap + ' ' + title;
+      Actions.ChapterScreen({ title: novelTitle });
   }
 
   render() {

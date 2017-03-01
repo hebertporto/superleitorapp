@@ -49,8 +49,9 @@ class ChapterScreen extends Component {
                 planejando blefar sua saída começaram a tremer de medo.
 
                 Quando eles viram a cena diante deles, aqueles que ainda estavam
-                planejando blefar sua saída começaram a tremer de medo.
+                planejando blefar sua saída começaram a tremer de medo. Fim.
                 </Text>
+                <View style={{ height: 70 }} />
             </View>
           </ScrollView>
             <View style={{ position: 'absolute', left: 0, right: 0, bottom: 0 }}>
@@ -69,6 +70,7 @@ class ChapterScreen extends Component {
 const styles = StyleSheet.create({
   textStyle: {
     padding: 10,
+    marginBottom: 50,
     justifyContent: 'center',
     textAlign: 'center',
     fontSize: 16,

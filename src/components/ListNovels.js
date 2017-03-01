@@ -17,7 +17,7 @@ const myIcon2 = (<Icon name="translate" size={18} color="#717171" />);
 
 class ListNovels extends Component {
   selectNovel() {
-      Actions.NovelScreen({ novel: this.props.novel });
+      Actions.NovelScreen({ novel: this.props.novel, title: this.props.novel.title });
   }
 
 

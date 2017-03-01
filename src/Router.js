@@ -36,7 +36,12 @@ const RouterComponent = () => {
        <Scene
          key='NovelScreen'
          component={NovelScreen}
-         hideNavBar
+         title='Novel Screen'
+         titleStyle={styles.titleStyle}
+         navigationBarStyle={styles.navigationBarStyle}
+         leftButtonIconStyle={{ tintColor: 'white' }}
+         renderRightButton={this.renderMenuButton}
+         hideNavBar={false}
        />
 
     </Router>

@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { Text, View, Image, StyleSheet, ListView } from 'react-native';
+import { Text, View, Image, StyleSheet, ListView, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Actions } from 'react-native-router-flux';
 import { AdMobBanner } from 'react-native-admob';
 import ListChapter from './ListChapter';
 
 const myIcon = (<Icon name="copyright" size={18} color="#717171" />);
 const myIcon2 = (<Icon name="translate" size={18} color="#717171" />);
-const myIcon3 = (<Icon name="keyboard-backspace" size={36} color="white" />);
 
 class NovelScreen extends Component {
 
@@ -46,16 +44,13 @@ class NovelScreen extends Component {
   }
 
   renderSectionHeader() {
-    const goListNovels = () => Actions.main();
     const { title, url } = this.props.novel;
     return (
-      <View>
+      <View style={{ paddingTop: Platform.OS === 'ios' ? 64 : 54 }}>
         <Image
           style={styles.imageStyle}
           source={{ uri: url }}
         >
-        <Text onPress={goListNovels}>{myIcon3}</Text>
-
           <Text numberOfLines={2} style={styles.titleStyle}>
             {title}
           </Text>
@@ -116,7 +111,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 20,
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
   },
   divider: {
         backgroundColor: 'rgba(0,0,0,.12)',
