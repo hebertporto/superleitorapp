@@ -22,7 +22,8 @@ class ListNovels extends Component {
 
 
   render() {
-    const { title, url, id } = this.props.novel;
+    // const { title, url, id } = this.props.novel;
+    const { name, cover_url, author, translation_team } = this.props.novel;
     return (
       <TouchableWithoutFeedback onPress={this.selectNovel.bind(this)}>
         <View>
@@ -30,17 +31,17 @@ class ListNovels extends Component {
             <CardSection>
               <Image
                 style={styles.imageStyle}
-                source={{ uri: url }}
+                source={{ uri: cover_url }}
               >
                 <Text numberOfLines={1} style={styles.titleStyle}>
-                  {title}
+                  {name}
                 </Text>
               </Image>
             </CardSection>
             <CardSection>
               <View style={styles.viewStyle}>
-                <Text numberOfLines={1} style={styles.textStyle}>{myIcon} {title}</Text>
-                <Text numberOfLines={1} style={styles.textStyle}>{myIcon2} {id}</Text>
+                <Text numberOfLines={1} style={styles.textStyle}>{myIcon} {author}</Text>
+                <Text numberOfLines={1} style={styles.textStyle}>{myIcon2} {translation_team}</Text>
               </View>
             </CardSection>
           </Card>
