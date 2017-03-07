@@ -44,26 +44,24 @@ class NovelScreen extends Component {
   }
 
   renderSectionHeader() {
-    const { title, url } = this.props.novel;
+    const { name, cover_url, author, translation_team, description } = this.props.novel;
     return (
       <View style={{ paddingTop: Platform.OS === 'ios' ? 64 : 54 }}>
         <Image
           style={styles.imageStyle}
-          source={{ uri: url }}
+          source={{ uri: cover_url }}
         >
           <Text numberOfLines={2} style={styles.titleStyle}>
-            {title}
+            {name}
           </Text>
         </Image>
             <View style={styles.viewStyle}>
               <Text style={styles.textStyleDescription}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum
-                vulputate luctus. Nulla venenatis egestas dignissim. Sed eu odio eget leo tincidunt
-                lacinia id ut justo. Nulla eros justo, laoreet ac turpis eget
+                {description}
               </Text>
               <View style={styles.divider} />
-              <Text numberOfLines={1} style={styles.textStyle}>{myIcon} Jing Wu Hen</Text>
-              <Text numberOfLines={1} style={styles.textStyle}>{myIcon2} Saikai Scan</Text>
+              <Text numberOfLines={1} style={styles.textStyle}>{myIcon} {author} </Text>
+              <Text numberOfLines={1} style={styles.textStyle}>{myIcon2} {translation_team}</Text>
               <View style={styles.divider} />
             </View>
       </View>
