@@ -9,8 +9,6 @@ export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case NOVEL_FECTH_SUCCESS:
       return action.payload;
-    case NOVEL_FECTH_CHAPTERS_SUCCESS:
-      return action.payload;
     default:
       return state;
   }

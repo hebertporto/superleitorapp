@@ -7,10 +7,9 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
-  console.log(state);
   switch (action.type) {
     case NOVEL_FECTH_CHAPTERS_SUCCESS:
-      return { ...state, chatpers: action.payload};
+      return action.payload; 
     default:
       return state;
   }

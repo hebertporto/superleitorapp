@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   console.log(state);
-   return { novelsChapters: state.novelsChapters.chapters };
+   return { novelsChapters: state.novelsChapters };
 };
 
 export default connect(mapStateToProps, { novelsChaptersFetch })(NovelScreen);

@@ -41,7 +41,6 @@ const RouterComponent = () => {
          leftButtonIconStyle={{ tintColor: 'white' }}
          renderRightButton={this.renderMenuButton}
          hideNavBar={false}
-         onBack={() => NavigationActions.pop({refresh:{}})}
        />
 
     </Router>
