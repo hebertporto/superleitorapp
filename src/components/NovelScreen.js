@@ -3,6 +3,9 @@ import { Text, View, Image, StyleSheet, ListView, Platform } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AdMobBanner } from 'react-native-admob';
 import ListChapter from './ListChapter';
+import { connect } from 'react-redux';
+import { novelsChaptersFetch } from '../actions';
+
 
 const myIcon = (<Icon name="copyright" size={18} color="#717171" />);
 const myIcon2 = (<Icon name="translate" size={18} color="#717171" />);
@@ -10,20 +13,21 @@ const myIcon2 = (<Icon name="translate" size={18} color="#717171" />);
 class NovelScreen extends Component {
 
   componentWillMount() {
+    const { _id } = this.props.novel;
+
+    this.props.novelsChaptersFetch({ id: _id });
     this.createDataSource(this.props);
   }
 
-  createDataSource() {
+  componentWillReceiveProps(nextProps) {
+    this.createDataSource(nextProps);
+  }
+
+  createDataSource({novelsChapters}) {
     const ds = new ListView.DataSource({
         rowHasChanged: (r1, r2) => r1 !== r2
     });
-    this.dataSource = ds.cloneWithRows([
-      { cap: '01', title: 'Lorem ipsum dolor' },
-      { cap: '02', title: 'Lorem dolor' },
-      { cap: '04', title: 'Ipsum dolor' },
-      { cap: '125', title: 'Lorem ipsum dolor' },
-      { cap: '407', title: 'Dolor Lorem' }
-    ]);
+    this.dataSource = ds.cloneWithRows(novelsChapters);
   }
 
   renderRow(chapter) {
@@ -131,4 +135,9 @@ const styles = StyleSheet.create({
   }
 });
 
-export default NovelScreen;
+const mapStateToProps = state => {
+  console.log(state);
+   return { novelsChapters: state.novelsChapters.chapters };
+};
+
+export default connect(mapStateToProps, { novelsChaptersFetch })(NovelScreen);

@@ -4,20 +4,20 @@ import { Actions } from 'react-native-router-flux';
 
 class ListChapter extends Component {
   selectChapter() {
-      const { cap, title } = this.props.chapter;
-      const novelTitle = cap + ' ' + title;
+      const { number, title } = this.props.chapter;
+      const novelTitle = number + ' ' + title;
       Actions.ChapterScreen({ title: novelTitle });
   }
 
   render() {
-    const { cap, title } = this.props.chapter;
+    const { number, title } = this.props.chapter;
 
      return (
         <TouchableWithoutFeedback onPress={this.selectChapter.bind(this)}>
           <View>
             <View style={styles.viewStyle}>
               <Text style={styles.textStyleNumber}>
-                {cap}
+                {number}
               </Text>
               <Text style={styles.textStyle}>
                 {title}

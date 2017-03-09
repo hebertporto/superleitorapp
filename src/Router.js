@@ -1,11 +1,10 @@
 import React from 'react';
 import { Platform, StyleSheet } from 'react-native';
-import { Scene, Router } from 'react-native-router-flux';
+import { Scene, Router, ActionConst, Actions, NavigationActions } from 'react-native-router-flux';
 import LoginFacebook from './components/LoginFacebook';
 import MainScreen from './components/MainScreen';
 import NovelScreen from './components/NovelScreen';
 import ChapterScreen from './components/ChapterScreen';
-
 
 const RouterComponent = () => {
   return (
@@ -42,6 +41,7 @@ const RouterComponent = () => {
          leftButtonIconStyle={{ tintColor: 'white' }}
          renderRightButton={this.renderMenuButton}
          hideNavBar={false}
+         onBack={() => NavigationActions.pop({refresh:{}})}
        />
 
     </Router>
