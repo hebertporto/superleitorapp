@@ -3,10 +3,11 @@ import { TouchableWithoutFeedback, View, Text, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 class ListChapter extends Component {
+
   selectChapter() {
-      const { number, title } = this.props.chapter;
+      const { number, title, _id } = this.props.chapter;
       const novelTitle = number + ' ' + title;
-      Actions.ChapterScreen({ title: novelTitle });
+      Actions.ChapterScreen({ id: _id, title: novelTitle });
   }
 
   render() {

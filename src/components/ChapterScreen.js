@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, ScrollView, View, Platform } from 'react-native';
+import { connect } from 'react-redux';
+import { chapterFetch } from '../actions';
+
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
   AdMobBanner
@@ -9,47 +13,35 @@ import {
 const myIcon2 = (<Icon name="translate" size={18} color="#717171" />);
 
 class ChapterScreen extends Component {
+
+  componentWillMount(){
+    const id = this.props.id;
+    this.props.chapterFetch({ id });
+  }
+
+
   render() {
+      const title = this.props.title;
+      const { content } = this.props.chapter;
+      console.log('TELA CAPITULO', this.props.chapter);
       return (
         <View style={{ flex: 1 }}>
           <ScrollView style={{ paddingTop: Platform.OS === 'ios' ? 64 : 54 }}>
             <View style={styles.viewHeaderStyle}>
-                <Text style={styles.titleStyle}>Tales of Gods and Demons </Text>
-                <Text style={styles.subTitleStyle}>Quando eles viram a cena diante </Text>
+                <Text style={styles.titleStyle}> AAAAA </Text>
+                <Text style={styles.subTitleStyle}>{title}</Text>
             </View>
             <View style={styles.divider} />
             <View>
               <Text style={styles.info} numberOfLines={1}>
-                {myIcon2} Tradutor 1, Tradutor 2
+                {myIcon2} {this.props.chapter._id}
               </Text>
-              <Text style={styles.info} numberOfLines={1}>{myIcon2} Revisor</Text>
+              <Text style={styles.info} numberOfLines={1}>{myIcon2} aaaa</Text>
             </View>
             <View style={styles.divider} />
             <View>
                 <Text style={styles.textStyle}>
-                Quando eles viram a cena diante deles, aqueles que ainda estavam
-                planejando blefar sua saída começaram a tremer de medo.
-                Quando eles viram a cena diante deles, aqueles que ainda estavam
-                planejando blefar sua saída começaram a tremer de medo.
-                Quando eles viram a cena diante deles, aqueles que ainda estavam
-                planejando blefar sua saída começaram a tremer de medo.
-                Quando eles viram a cena diante deles, aqueles que ainda estavam
-                planejando blefar sua saída começaram a tremer de medo.
-
-                Quando eles viram a cena diante deles, aqueles que ainda estavam
-                planejando blefar sua saída começaram a tremer de medo.
-
-                Quando eles viram a cena diante deles, aqueles que ainda estavam
-                planejando blefar sua saída começaram a tremer de medo.
-
-                Quando eles viram a cena diante deles, aqueles que ainda estavam
-                planejando blefar sua saída começaram a tremer de medo.
-
-                Quando eles viram a cena diante deles, aqueles que ainda estavam
-                planejando blefar sua saída começaram a tremer de medo.
-
-                Quando eles viram a cena diante deles, aqueles que ainda estavam
-                planejando blefar sua saída começaram a tremer de medo. Fim.
+                  {content}
                 </Text>
                 <View style={{ height: 70 }} />
             </View>
@@ -103,4 +95,9 @@ const styles = StyleSheet.create({
   }
 
 });
-export default ChapterScreen;
+
+const mapStateToProps = state => {
+   return { chapter: state.chapter };
+};
+
+export default connect(mapStateToProps, { chapterFetch })(ChapterScreen);

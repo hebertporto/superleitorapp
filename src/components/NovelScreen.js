@@ -48,7 +48,7 @@ class NovelScreen extends Component {
   }
 
   renderSectionHeader() {
-    const { name, cover_url, author, translation_team, description } = this.props.novel;
+    const { name, cover_url, author, translation_team, description, _id } = this.props.novel;
     return (
       <View style={{ paddingTop: Platform.OS === 'ios' ? 64 : 54 }}>
         <Image

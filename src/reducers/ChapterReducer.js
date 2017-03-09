@@ -1,12 +1,14 @@
 import {
-  NOVEL_FECTH_SUCCESS
+  CHAPTER_FECTH_SUCCESS
 } from '../actions/types';
 
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+  id: ''
+};
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case NOVEL_FECTH_SUCCESS:
+    case CHAPTER_FECTH_SUCCESS:
       return action.payload;
     default:
       return state;

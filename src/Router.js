@@ -25,7 +25,7 @@ const RouterComponent = () => {
        <Scene
          key='ChapterScreen'
          component={ChapterScreen}
-         title='Chapter Screen'
+         title=''
          titleStyle={styles.titleStyle}
          navigationBarStyle={styles.navigationBarStyle}
          leftButtonIconStyle={{ tintColor: 'white' }}
