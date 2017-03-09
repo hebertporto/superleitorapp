@@ -26,12 +26,12 @@ export const novelsChaptersFetch = ({ id }) => {
 };
 
 export const chapterFetch = ({ id }) => {
-     alert(id);
     return (dispatch) => {
       fetch(`https://stark-beach-53351.herokuapp.com/api/chapter/${id}`)
         .then(response => response.json())
         .then((responseJson) => {
-            dispatch({ type: CHAPTER_FECTH_SUCCESS, payload: responseJson.data });
-         });
+            dispatch({ type: CHAPTER_FECTH_SUCCESS, payload: responseJson.data[0] });
+         })
+         .catch(error => console.log('error chapterFecth',error));
     };
 };

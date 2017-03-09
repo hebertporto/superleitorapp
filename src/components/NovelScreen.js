@@ -31,7 +31,8 @@ class NovelScreen extends Component {
   }
 
   renderRow(chapter) {
-     return <ListChapter chapter={chapter} />;
+     const { name } = this.props.novel
+     return <ListChapter chapter={chapter} nameNovel={name} />;
   }
 
   renderFooter() {
@@ -76,11 +77,10 @@ class NovelScreen extends Component {
         <ListView
           enableEmptySections
           dataSource={this.dataSource}
-          renderRow={this.renderRow}
+          renderRow={this.renderRow.bind(this)}
           renderSectionHeader={this.renderSectionHeader.bind(this)}
           renderFooter={this.renderFooter}
         />
-
     );
   }
 }
@@ -136,7 +136,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  console.log(state);
    return { novelsChapters: state.novelsChapters };
 };
 

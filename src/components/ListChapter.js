@@ -6,12 +6,14 @@ class ListChapter extends Component {
 
   selectChapter() {
       const { number, title, _id } = this.props.chapter;
-      const novelTitle = number + ' ' + title;
-      Actions.ChapterScreen({ id: _id, title: novelTitle });
+      const novelName = this.props.nameNovel;
+
+      const chapterTitle = number + ' - ' + title;
+      Actions.ChapterScreen({ idChapter: _id, title: chapterTitle, novelName: novelName });
   }
 
   render() {
-    const { number, title } = this.props.chapter;
+    const { number, title, _id } = this.props.chapter;
 
      return (
         <TouchableWithoutFeedback onPress={this.selectChapter.bind(this)}>

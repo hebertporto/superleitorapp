@@ -15,28 +15,29 @@ const myIcon2 = (<Icon name="translate" size={18} color="#717171" />);
 class ChapterScreen extends Component {
 
   componentWillMount(){
-    const id = this.props.id;
+    const id = this.props.idChapter;
     this.props.chapterFetch({ id });
   }
 
 
   render() {
       const title = this.props.title;
-      const { content } = this.props.chapter;
-      console.log('TELA CAPITULO', this.props.chapter);
+      const novelName = this.props.novelName;
+
+      const { content, translators, revisors } = this.props.chapter;
       return (
         <View style={{ flex: 1 }}>
           <ScrollView style={{ paddingTop: Platform.OS === 'ios' ? 64 : 54 }}>
             <View style={styles.viewHeaderStyle}>
-                <Text style={styles.titleStyle}> AAAAA </Text>
+                <Text style={styles.titleStyle}> {novelName} </Text>
                 <Text style={styles.subTitleStyle}>{title}</Text>
             </View>
             <View style={styles.divider} />
             <View>
               <Text style={styles.info} numberOfLines={1}>
-                {myIcon2} {this.props.chapter._id}
+                {myIcon2} {translators}
               </Text>
-              <Text style={styles.info} numberOfLines={1}>{myIcon2} aaaa</Text>
+              <Text style={styles.info} numberOfLines={1}>{myIcon2} {revisors}</Text>
             </View>
             <View style={styles.divider} />
             <View>
