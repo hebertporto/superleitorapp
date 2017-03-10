@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     width: undefined,
     height: 110,
     justifyContent: 'flex-end',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   textStyle: {
      flex: 1,
