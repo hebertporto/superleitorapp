@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
   textStyle: {
      flex: 1,
      flexDirection: 'column',
-     paddingBottom: 5
+     paddingBottom: 5,
+     lineHeight: 20
   },
   linearGradient: {
     height: 35,
