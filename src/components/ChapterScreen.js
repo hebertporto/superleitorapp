@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, ScrollView, View, Platform } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { AdMobBanner } from 'react-native-admob';
 import { connect } from 'react-redux';
 import { chapterFetch } from '../actions';
-
-
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import {
-  AdMobBanner
-} from 'react-native-admob';
-
 
 const myIcon2 = (<Icon name="translate" size={18} color="#717171" />);
 
 class ChapterScreen extends Component {
 
-  componentWillMount(){
+  componentWillMount() {
     const id = this.props.idChapter;
     this.props.chapterFetch({ id });
   }
-
 
   render() {
       const title = this.props.title;

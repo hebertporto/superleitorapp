@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View, Image, StyleSheet, ListView, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { connect } from 'react-redux';
 import { AdMobBanner } from 'react-native-admob';
 import ListChapter from './ListChapter';
-import { connect } from 'react-redux';
 import { novelsChaptersFetch } from '../actions';
 
 
@@ -23,7 +23,7 @@ class NovelScreen extends Component {
     this.createDataSource(nextProps);
   }
 
-  createDataSource({novelsChapters}) {
+  createDataSource({ novelsChapters }) {
     const ds = new ListView.DataSource({
         rowHasChanged: (r1, r2) => r1 !== r2
     });
@@ -31,7 +31,7 @@ class NovelScreen extends Component {
   }
 
   renderRow(chapter) {
-     const { name } = this.props.novel
+     const { name } = this.props.novel;
      return <ListChapter chapter={chapter} nameNovel={name} />;
   }
 
@@ -49,7 +49,7 @@ class NovelScreen extends Component {
   }
 
   renderSectionHeader() {
-    const { name, cover_url, author, translation_team, description, _id } = this.props.novel;
+    const { name, cover_url, author, translation_team, description } = this.props.novel;
     return (
       <View style={{ paddingTop: Platform.OS === 'ios' ? 64 : 54 }}>
         <Image
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   imageStyle: {
     flex: 1,
     width: undefined,
-    height: 250,
+    height: 110,
     paddingLeft: 20,
     paddingRight: 10,
     paddingTop: 10,
