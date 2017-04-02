@@ -40,13 +40,13 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   textStyle: {
-    fontSize: 24,
+    fontSize: 18,
     marginLeft: 10
   },
   textStyleNumber: {
-    fontSize: 26,
+    fontSize: 22,
     paddingLeft: 15,
-    width: 65
+    width: 60
   },
   divider: {
     backgroundColor: 'rgba(0,0,0,.12)',

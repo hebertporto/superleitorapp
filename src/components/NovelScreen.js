@@ -65,8 +65,16 @@ class NovelScreen extends Component {
                 {description}
               </Text>
               <View style={styles.divider} />
-              <Text numberOfLines={1} style={styles.textStyle}>{myIcon} {author} </Text>
-              <Text numberOfLines={1} style={styles.textStyle}>{myIcon2} {translation_team}</Text>
+                <View style={{ paddingLeft: 8 }}>
+                  <View style={styles.viewContainerText}>
+                    <Text style={styles.iconStyle}>{myIcon}</Text>
+                    <Text numberOfLines={1} style={styles.textStyle}> {author}</Text>
+                  </View>
+                  <View style={styles.viewContainerText}>
+                    <Text style={styles.iconStyle}>{myIcon2}</Text>
+                    <Text numberOfLines={1} style={styles.textStyle}> {translation_team}</Text>
+                  </View>
+                </View>
               <View style={styles.divider} />
             </View>
       </View>
@@ -102,7 +110,12 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     paddingLeft: 8,
     paddingTop: 8,
-    paddingBottom: 8
+  },
+  viewContainerText: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   imageStyle: {
     flex: 1,
@@ -116,17 +129,21 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   divider: {
-        backgroundColor: 'rgba(0,0,0,.12)',
-        height: 1,
-        marginLeft: 50,
-        marginRight: 50,
-        marginTop: 10,
-        marginBottom: 10
-
+    backgroundColor: 'rgba(0,0,0,.12)',
+    height: 1,
+    marginLeft: 50,
+    marginRight: 50,
+    marginTop: 10,
+    marginBottom: 10
+  },
+   iconStyle: {
+     paddingBottom: 5
   },
   textStyle: {
-    paddingLeft: 10,
-    paddingRight: 10
+     flex: 1,
+     flexDirection: 'row',
+     paddingBottom: 5,
+     lineHeight: 20
   },
   linearGradient: {
     height: 35,

@@ -40,8 +40,14 @@ class ListNovels extends Component {
             </CardSection>
             <CardSection>
               <View style={styles.viewStyle}>
-                <Text numberOfLines={1} style={styles.textStyle}>{myIcon} {author}</Text>
-                <Text numberOfLines={1} style={styles.textStyle}>{myIcon2} {translation_team}</Text>
+                <View style={styles.viewContainerText}>
+                  <Text style={styles.iconStyle}>{myIcon}</Text>
+                  <Text numberOfLines={1} style={styles.textStyle}> {author}</Text>
+                </View>
+                <View style={styles.viewContainerText}>
+                  <Text style={styles.iconStyle}>{myIcon2}</Text>
+                  <Text numberOfLines={1} style={styles.textStyle}> {translation_team}</Text>
+                </View>
               </View>
             </CardSection>
           </Card>
@@ -71,9 +77,18 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'flex-start',
   },
+  viewContainerText: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  iconStyle: {
+     paddingBottom: 5
+  },
   textStyle: {
      flex: 1,
-     flexDirection: 'column',
+     flexDirection: 'row',
      paddingBottom: 5,
      lineHeight: 20
   },

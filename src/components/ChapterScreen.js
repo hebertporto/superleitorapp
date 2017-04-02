@@ -23,16 +23,20 @@ class ChapterScreen extends Component {
         <View style={{ flex: 1 }}>
           <ScrollView style={{ paddingTop: Platform.OS === 'ios' ? 64 : 54 }}>
             <View style={styles.viewHeaderStyle}>
-                <Text style={styles.titleStyle}> {novelName} </Text>
+                <Text numberOfLines={1} style={styles.titleStyle}> {novelName} </Text>
                 <Text style={styles.subTitleStyle}>{title}</Text>
             </View>
             <View style={styles.divider} />
-            <View>
-              <Text style={styles.info} numberOfLines={1}>
-                {myIcon2} {translators}
-              </Text>
-              <Text style={styles.info} numberOfLines={1}>{myIcon2} {revisors}</Text>
-            </View>
+            <View style={styles.viewStyle}>
+                <View style={styles.viewContainerText}>
+                  <Text style={styles.iconStyle}>{myIcon2}</Text>
+                  <Text numberOfLines={1} style={styles.textStyleHeader}> {translators}</Text>
+                </View>
+                <View style={styles.viewContainerText}>
+                  <Text style={styles.iconStyle}>{myIcon2}</Text>
+                  <Text numberOfLines={1} style={styles.textStyleHeader}> {revisors}</Text>
+                </View>
+              </View>
             <View style={styles.divider} />
             <View>
                 <Text style={styles.textStyle}>
@@ -61,7 +65,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
     fontSize: 16,
-    lineHeight: 20
+    lineHeight: 20,
+    color: 'black'
+  },
+  iconStyle: {
+     paddingBottom: 5
+  },
+  textStyleHeader: {
+     flex: 1,
+     flexDirection: 'row',
+     paddingBottom: 5,
+     lineHeight: 20
   },
   viewHeaderStyle: {
     flex: 1,
@@ -87,7 +101,20 @@ const styles = StyleSheet.create({
   },
   info: {
     paddingLeft: 10
-  }
+  },
+  viewStyle: {
+    flex: 1,
+    flexDirection: 'column',
+    paddingLeft: 8,
+    paddingTop: 8,
+    paddingBottom: 8
+  },
+  viewContainerText: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
 });
 
