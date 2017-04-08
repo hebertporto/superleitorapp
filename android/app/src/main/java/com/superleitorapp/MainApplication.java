@@ -7,6 +7,8 @@ import com.sbugert.rnadmob.RNAdMobPackage;
 
 import com.oblador.vectoricons.VectorIconsPackage;
 
+import io.realm.react.RealmReactPackage;
+
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
@@ -49,7 +51,8 @@ public class MainApplication extends Application implements ReactApplication {
           new RCTSplashScreenPackage(MainActivity.activity),
           new FBSDKPackage(mCallbackManager),
           new OrientationPackage(MainActivity.activity),
-          new VectorIconsPackage()
+          new VectorIconsPackage(),
+          new RealmReactPackage()
       );
     }
   };
@@ -58,12 +61,6 @@ public class MainApplication extends Application implements ReactApplication {
   public ReactNativeHost getReactNativeHost() {
     return mReactNativeHost;
   }
-
-  // @Override
-  // public void onCreate() {
-  //   super.onCreate();
-  //   SoLoader.init(this, /* native exopackage */ false);
-  // }
 
   @Override
   public void onCreate() {
