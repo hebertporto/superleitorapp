@@ -9,6 +9,8 @@ import com.oblador.vectoricons.VectorIconsPackage;
 
 import io.realm.react.RealmReactPackage;
 
+import com.BV.LinearGradient.LinearGradientPackage;
+
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
@@ -52,7 +54,8 @@ public class MainApplication extends Application implements ReactApplication {
           new FBSDKPackage(mCallbackManager),
           new OrientationPackage(MainActivity.activity),
           new VectorIconsPackage(),
-          new RealmReactPackage()
+          new RealmReactPackage(),
+          new LinearGradientPackage()
       );
     }
   };

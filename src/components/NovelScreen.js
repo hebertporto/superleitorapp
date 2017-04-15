@@ -37,7 +37,7 @@ class NovelScreen extends Component {
 
   renderFooter() {
     return (
-      <View>
+      <View style={styles.footerAd}>
         <AdMobBanner
           bannerSize="smartBannerPortrait"
           adUnitID="ca-app-pub-8356555649836141/2597995459"
@@ -94,6 +94,12 @@ class NovelScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+  footerAd: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
   titleStyle: {
     fontSize: 26,
     paddingLeft: 5,

@@ -69,7 +69,8 @@ const styles = StyleSheet.create({
     color: 'black'
   },
   iconStyle: {
-     paddingBottom: 5
+     paddingBottom: 5,
+     paddingLeft: 5
   },
   textStyleHeader: {
      flex: 1,
@@ -89,7 +90,9 @@ const styles = StyleSheet.create({
 
   },
   subTitleStyle: {
-    fontSize: 18
+    fontSize: 18,
+    paddingLeft: 20,
+    paddingRight: 10
   },
   divider: {
     backgroundColor: 'rgba(0,0,0,.12)',
@@ -105,9 +108,9 @@ const styles = StyleSheet.create({
   viewStyle: {
     flex: 1,
     flexDirection: 'column',
-    paddingLeft: 8,
-    paddingTop: 8,
-    paddingBottom: 8
+    paddingLeft: 15,
+    paddingTop: 4,
+    paddingBottom: 4
   },
   viewContainerText: {
     flex: 1,

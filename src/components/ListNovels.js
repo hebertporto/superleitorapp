@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactNative from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import LinearGradient from 'react-native-linear-gradient';
 import { Actions } from 'react-native-router-flux';
 import { CardSection, Card } from './common';
 
@@ -33,6 +34,8 @@ class ListNovels extends Component {
                 style={styles.imageStyle}
                 source={{ uri: cover_url }}
               >
+              <LinearGradient colors={['rgba(0,0,0,0)','rgba(0,0,0,0.5)']} style={styles.gradientContainer}>
+              </LinearGradient>
                 <Text numberOfLines={1} style={styles.titleStyle}>
                   {name}
                 </Text>
@@ -58,6 +61,16 @@ class ListNovels extends Component {
 }
 
 const styles = StyleSheet.create({
+  gradientContainer: {
+    height: 45,
+    opacity: 0.3,
+    alignSelf: 'stretch',
+    backgroundColor: "transparent",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
   titleStyle: {
     fontSize: 20,
     paddingLeft: 5,

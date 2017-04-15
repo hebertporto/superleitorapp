@@ -22,7 +22,7 @@ class ListChapter extends Component {
               <Text style={styles.textStyleNumber}>
                 {number}
               </Text>
-              <Text style={styles.textStyle}>
+              <Text style={styles.textStyle} adjustsFontSizeToFit={true}>
                 {title}
               </Text>
             </View>
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 18,
-    marginLeft: 10
+    marginLeft: 10,
   },
   textStyleNumber: {
     fontSize: 22,
