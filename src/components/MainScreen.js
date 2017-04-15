@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListView, RefreshControl, TextInput } from 'react-native';
+import { ListView, RefreshControl, TextInput, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import ListNovels from './ListNovels';
 import { novelsFetch } from '../actions';
@@ -49,9 +49,11 @@ class MainScreen extends Component {
   searchInput() {
     return (
             <TextInput
+              style={style.textSearch}
               onChangeText={(text) => this.filterSearch(text)}
               placeholder="Pesquisar"
               value={this.state.text}
+              underlineColorAndroid="transparent"
             />
         );
   }
@@ -85,5 +87,20 @@ class MainScreen extends Component {
 const mapStateToProps = state => {
    return { novels: state.novels };
 };
+
+const style = StyleSheet.create({
+  textSearch: {
+    height: 40,
+    borderColor: '#ddd',
+    borderRadius: 2,
+    borderWidth: 1,
+    elevation: 1,
+    flex: 1,
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 10,
+    paddingLeft: 10
+  }
+});
 
 export default connect(mapStateToProps, { novelsFetch })(MainScreen);
