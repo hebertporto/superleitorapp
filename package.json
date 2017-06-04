@@ -11,7 +11,7 @@
     "fetch": "^1.1.0",
     "firebase": "^3.6.9",
     "react": "~15.4.0",
-    "react-native": "0.41.2",
+    "react-native": "0.42.0",
     "react-native-admob": "^1.2.0",
     "react-native-fbsdk": "^0.5.0",
     "react-native-linear-gradient": "^2.0.0",
