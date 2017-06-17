@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { ListView, RefreshControl, TextInput, StyleSheet } from 'react-native';
+import { ListView, RefreshControl, TextInput, StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import ListNovels from './ListNovels';
+import LoadingSpinner from './common/LoadingSpinner';
 import { novelsFetch } from '../actions';
 
 class MainScreen extends Component {
@@ -16,6 +17,7 @@ class MainScreen extends Component {
       text: '',
       novels: []
     };
+    this.renderFooter = this.renderFooter.bind(this);
     this.props.novelsFetch();
   }
   
@@ -62,6 +64,18 @@ class MainScreen extends Component {
      return <ListNovels novel={novel} />;
   }
 
+  renderFooter() {
+    const { isLoading } = this.props.toggle;
+    if (isLoading) {
+      return (
+        <View style={style.loadingContainer}>
+          <LoadingSpinner spinnerColor="#4286f4" />
+        </View>
+      );
+    }
+    return null;
+  }
+
   render() {
     const ds = this.state.dataSource;
     const { novels } = this.state;
@@ -71,6 +85,7 @@ class MainScreen extends Component {
         enableEmptySections
         dataSource={ds.cloneWithRows(novels)}
         renderRow={this.renderRow}
+        renderFooter={this.renderFooter}
         refreshControl={
             <RefreshControl
               refreshing={this.state.refreshing}
@@ -85,7 +100,7 @@ class MainScreen extends Component {
   }
 }
 const mapStateToProps = state => {
-   return { novels: state.novels };
+   return { novels: state.novels, toggle: state.toggle };
 };
 
 const style = StyleSheet.create({
@@ -100,6 +115,10 @@ const style = StyleSheet.create({
     marginRight: 5,
     marginTop: 10,
     paddingLeft: 10
+  },
+  loadingContainer: {
+    marginTop: 25,
+    flex: 0.1
   }
 });
 
