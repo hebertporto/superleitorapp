@@ -95,7 +95,7 @@ class NovelScreen extends Component {
 
 const styles = StyleSheet.create({
   footerAd: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0

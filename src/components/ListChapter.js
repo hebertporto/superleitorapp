@@ -8,8 +8,8 @@ class ListChapter extends Component {
       const { number, title, _id } = this.props.chapter;
       const novelName = this.props.nameNovel;
 
-      const chapterTitle = number + ' - ' + title;
-      Actions.ChapterScreen({ idChapter: _id, title: chapterTitle, novelName: novelName });
+      const chapterTitle = `${number} -  ${title}`;
+      Actions.ChapterScreen({ idChapter: _id, title: chapterTitle, novelName });
   }
 
   render() {
@@ -22,7 +22,10 @@ class ListChapter extends Component {
               <Text style={styles.textStyleNumber}>
                 {number}
               </Text>
-              <Text style={styles.textStyle} adjustsFontSizeToFit={true}>
+              <Text 
+                style={styles.textStyle} 
+                adjustsFontSizeToFit
+              >
                 {title}
               </Text>
             </View>
