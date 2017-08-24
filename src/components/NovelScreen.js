@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, StyleSheet, ListView, Platform } from 'react-native';
+import { Text, View, Image, StyleSheet, ListView, Platform, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { connect } from 'react-redux';
 import { AdMobBanner } from 'react-native-admob';
@@ -11,12 +11,23 @@ const myIcon = (<Icon name="copyright" size={18} color="#717171" />);
 const myIcon2 = (<Icon name="translate" size={18} color="#717171" />);
 
 class NovelScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hideFullDescription: true,
+      description: '',
+      textToogle: 'VER MAIS'
+    };
+    this.renderDescription = this.renderDescription.bind(this);
+    this.toogleDescription = this.toogleDescription.bind(this);
+  }
 
   componentWillMount() {
     const { _id } = this.props.novel;
 
     this.props.novelsChaptersFetch({ id: _id });
     this.createDataSource(this.props);
+    this.renderDescription();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -28,6 +39,29 @@ class NovelScreen extends Component {
         rowHasChanged: (r1, r2) => r1 !== r2
     });
     this.dataSource = ds.cloneWithRows(novelsChapters);
+  }
+
+  async toogleDescription() {
+    await this.setState((prevState) => {
+      return { hideFullDescription: !prevState.hideFullDescription };
+    });
+    this.renderDescription();
+  }
+
+  async renderDescription() {
+    const { description } = this.props.novel;   
+    if (this.state.hideFullDescription) {
+      await this.setState({
+        description: `${description.slice(0, 100)}...`,
+        textToogle: 'VER MAIS'
+      });
+
+      return;
+    }
+    await this.setState({
+      description,
+      textToogle: 'VER MENOS'
+    });
   }
 
   renderRow(chapter) {
@@ -62,8 +96,13 @@ class NovelScreen extends Component {
         </Image>
             <View style={styles.viewStyle}>
               <Text style={styles.textStyleDescription}>
-                {description}
+                {this.state.description}
               </Text>
+
+              <TouchableOpacity style={styles.textToogle} onPress={this.toogleDescription}>
+                <Text>{this.state.textToogle}</Text>
+              </TouchableOpacity>
+
               <View style={styles.divider} />
                 <View style={{ paddingLeft: 8 }}>
                   <View style={styles.viewContainerText}>
@@ -86,7 +125,7 @@ class NovelScreen extends Component {
           enableEmptySections
           dataSource={this.dataSource}
           renderRow={this.renderRow.bind(this)}
-          renderSectionHeader={this.renderSectionHeader.bind(this)}
+          renderHeader={this.renderSectionHeader.bind(this)}
           renderFooter={this.renderFooter}
         />
     );
@@ -94,6 +133,12 @@ class NovelScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+  textToogle: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   footerAd: {
     position: 'absolute',
     bottom: 0,
